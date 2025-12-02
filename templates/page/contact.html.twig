@@ -6,55 +6,55 @@
 {% block stylesheets %}
 {{parent()}}
 <style>
-    .hero-dark-overlay { background-color: #111; }
-    
-    /* Box formularza - białe tło i cień */
-    .contact-form-box {
-        background: #fff;
-        padding: 40px;
-        border-radius: 8px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Wyraźniejszy cień */
-        border: 1px solid #eee;
-    }
+	.hero-dark-overlay { background-color: #111; }
 
-    /* Pola formularza */
-    .form-control-blak {
-        background-color: #f9f9f9;
-        border: 1px solid #eee;
-        border-radius: 4px;
-        box-shadow: none;
-        height: 50px;
-        padding-left: 20px;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        width: 100%;
-    }
-    
-    .form-control-blak:focus {
-        background-color: #fff;
-        border-color: #222; /* Ciemny border przy aktywności */
-        box-shadow: none;
-    }
-    
-    textarea.form-control-blak {
-        height: 120px !important;
-        padding-top: 15px;
-        resize: vertical;
-    }
+	/* Box formularza - białe tło i cień */
+	.contact-form-box {
+		background: #fff;
+		padding: 40px;
+		border-radius: 8px;
+		box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Wyraźniejszy cień */
+		border: 1px solid #eee;
+	}
 
-    .form-label {
-        font-weight: 700;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #333;
-        margin-bottom: 8px;
-        display: block;
-    }
-    
-    .form-group {
-        margin-bottom: 25px;
-    }
+	/* Pola formularza */
+	.form-control-blak {
+		background-color: #f9f9f9;
+		border: 1px solid #eee;
+		border-radius: 4px;
+		box-shadow: none;
+		height: 50px;
+		padding-left: 20px;
+		font-size: 14px;
+		transition: all 0.3s ease;
+		width: 100%;
+	}
+
+	.form-control-blak:focus {
+		background-color: #fff;
+		border-color: #222; /* Ciemny border przy aktywności */
+		box-shadow: none;
+	}
+
+	textarea.form-control-blak {
+		height: 120px !important;
+		padding-top: 15px;
+		resize: vertical;
+	}
+
+	.form-label {
+		font-weight: 700;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #333;
+		margin-bottom: 8px;
+		display: block;
+	}
+
+	.form-group {
+		margin-bottom: 25px;
+	}
 </style>
 {% endblock %}
 
@@ -75,7 +75,7 @@
 </div>
 </section>
 
-    <div class="container"><div class="divider-line solid light"></div></div>
+<div class="container"><div class="divider-line solid light"></div></div>
 
 <section class="sec-padding">
 <div class="container">
@@ -83,39 +83,66 @@
 
 		<div class="col-md-8">
 
-			<div class="contact-form-box margin-top-2">
-				<form method="post" action="#" id="blak-contact-form">
+			<div class="contact-form-box margin-top-2"
+				{# 1. Inicjalizacja kontrolera 'contact' #}
+				data-controller="contact"
+				{# 2. Przekazanie adresu URL do kontrolera (Value API) #}
+				data-contact-url-value="https://vm2xtakxbs4y5tj3ag23p2f5la0kysml.lambda-url.eu-west-1.on.aws">
+
+				<div data-contact-target="message" 
+					style="display:none; margin-bottom: 20px; padding: 15px; border-radius: 4px;">
+				</div>
+
+				<form method="post" action="#" 
+					data-contact-target="form"
+					data-action="submit->contact#submit">
 
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="form-label">Twoje Imię *</label>
-								<input type="text" name="sendername" class="form-control-blak" placeholder="Wpisz imię" required>
+								<input type="text" name="name" class="form-control-blak" placeholder="Wpisz imię" required>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="form-label">Adres Email *</label>
-								<input type="email" name="emailaddress" class="form-control-blak" placeholder="Wpisz email" required>
+								<input type="email" name="email" class="form-control-blak" placeholder="Wpisz email" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="form-label">Temat</label>
-						<input type="text" name="sendersubject" class="form-control-blak" placeholder="Np. Oferta współpracy">
+						<input type="text" name="subject" class="form-control-blak" placeholder="Np. Oferta współpracy">
 					</div>
 
 					<div class="form-group">
 						<label class="form-label">Wiadomość *</label>
-						<textarea class="form-control-blak" name="sendermessage" placeholder="Jak mogę Ci pomóc?" required></textarea>
+						<textarea class="form-control-blak" name="message" placeholder="Jak mogę Ci pomóc?" required></textarea>
 					</div>
 
 					<div class="clearfix"></div>
-					<button type="submit" class="btn btn-dark btn-round btn-medium uppercase">Wyślij Wiadomość</button>
+
+					<button type="submit" 
+						data-contact-target="button" 
+						class="btn btn-dark btn-round btn-medium uppercase">
+
+						<span data-contact-target="buttonText">Wyślij Wiadomość</span>
+
+						<span data-contact-target="buttonLoader" style="display:none;">
+							<i class="fa fa-spinner fa-spin"></i> Wysyłanie...
+						</span> 
+					</button>
 
 				</form>
 			</div>
+
+
+
+
+
+
 		</div>
 
 		<div class="col-md-4">
