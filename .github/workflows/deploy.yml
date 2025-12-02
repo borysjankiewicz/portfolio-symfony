@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      APP_ENV: prod # <--- Wersja Produkcyjna bez niepotrzebnych bibliotek
 
     steps:
       - name: 📥 Checkout code
