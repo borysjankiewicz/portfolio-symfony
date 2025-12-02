@@ -61,3 +61,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'eu-west-1' # <-- UPEWNIJ SIĘ, ŻE REGION JEST DOBRY
           SOURCE_DIR: 'dist'
+
+      - name: 🔄 Invalidate CloudFront Cache
+        # Ta komenda mówi: "Wyczyść wszystko (/*) z cache natychmiast"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'eu-west-1' # Upewnij się, że region jest zgodny z Twoim AWS
