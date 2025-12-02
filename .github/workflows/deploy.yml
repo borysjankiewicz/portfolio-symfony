@@ -44,11 +44,6 @@ jobs:
             --directory-prefix=dist \
             http://127.0.0.1:8000
 
-      - name: 🧹 Minify HTML, CSS, JS
-        uses: anthonyftwedt/minify-action@v1
-        with:
-          dir: 'dist'
-
       # Fix usuwający parametry query string (np. ?v=1) z nazw plików
       - name: 🛠️ Clean filenames
         run: find dist -name "*\?*" -type f -exec bash -c 'mv "$1" "${1%\?*}"' _ {} \;
