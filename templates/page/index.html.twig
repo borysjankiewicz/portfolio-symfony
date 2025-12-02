@@ -1,0 +1,149 @@
+{% extends 'page.html.twig' %}
+
+{% set title = "Borys Jankiewicz | Technical Product Manager Portfolio"%}
+{% set description="Technical Product Manager (TPM) z backgroundem developerskim. Specjalizuję się w Data-Driven Strategy, optymalizacji konwersji (CRO) i SQL. Zobacz moje projekty."%}
+{% block title %}{{title}}{% endblock %}
+{% block meta_description %}{{description}}{% endblock %}
+
+
+{% block sections %}
+
+    <section class="hero-engineering">
+        <div class="container hero-content">
+            <div class="row align-items-center" style="display:flex; align-items:center;" >
+                
+                <div class="col-md-6">
+                    <h1 class="hero-big-text">
+                        TECHNICAL<br>
+                        PRODUCT<br>
+                        MANAGER
+                    </h1>
+                    <p class="hero-sub-text">
+                    Growth, Strategy & Data-Driven UX
+                    </p>
+                    <a href="#portfolio" class="btn btn-blak-border link">
+                        ZOBACZ PROJEKTY
+                    </a>
+                </div>
+
+                <div class="col-md-6 hidden-sm hidden-xs">
+                    <div class="visuals-container">
+                        
+                        <div class="card-tablet">
+                            <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; background:#222; border-radius:20px; border:10px solid #111;">
+                                <rect x="250" y="10" width="100" height="5" rx="2" fill="#333"/>
+                                
+                                <rect x="40" y="60" width="240" height="120" rx="5" fill="#333"/>
+                                <text x="60" y="100" fill="#888" font-family="Arial" font-size="12">TOTAL USERS</text>
+                                <text x="60" y="140" fill="#fff" font-family="Arial" font-weight="bold" font-size="28">24.5K</text>
+                                
+                                <rect x="320" y="60" width="240" height="120" rx="5" fill="#333"/>
+                                <text x="340" y="100" fill="#888" font-family="Arial" font-size="12">CONVERSION</text>
+                                <text x="340" y="140" fill="#00c851" font-family="Arial" font-weight="bold" font-size="28">+28.4%</text>
+                                
+                                <rect x="40" y="220" width="520" height="300" rx="5" fill="#2a2a2a"/>
+                                <line x1="60" y1="480" x2="540" y2="480" stroke="#444" stroke-width="1"/>
+                                <line x1="60" y1="400" x2="540" y2="400" stroke="#444" stroke-width="1"/>
+                                <line x1="60" y1="320" x2="540" y2="320" stroke="#444" stroke-width="1"/>
+                                <polyline points="60,480 140,400 220,440 300,300 380,350 460,250 540,280" fill="none" stroke="#007bff" stroke-width="4"/>
+                                <circle cx="300" cy="300" r="6" fill="#007bff"/>
+                                <circle cx="460" cy="250" r="6" fill="#007bff"/>
+
+                                <rect x="40" y="550" width="160" height="200" rx="5" fill="#333"/>
+                                <rect x="220" y="550" width="340" height="200" rx="5" fill="#333"/>
+                            </svg>
+                        </div>
+
+                        <div class="card-phone">
+                            <svg viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; background: rgba(20,20,20,0.9); border-radius:30px; border:8px solid #000;">
+                                <path d="M100 0 H200 V20 Q200 30 190 30 H110 Q100 30 100 20 Z" fill="#000"/>
+                                
+                                <text x="30" y="80" fill="#fff" font-family="Arial" font-weight="bold" font-size="24">Product</text>
+                                <text x="30" y="110" fill="#fff" font-family="Arial" font-weight="bold" font-size="24">Strategy</text>
+                                
+                                <rect x="30" y="150" width="240" height="150" rx="5" fill="#333"/>
+                                <rect x="30" y="320" width="110" height="100" rx="5" fill="#444"/>
+                                <rect x="160" y="320" width="110" height="100" rx="5" fill="#444"/>
+                                
+                                <rect x="30" y="440" width="200" height="10" rx="2" fill="#555"/>
+                                <rect x="30" y="460" width="150" height="10" rx="2" fill="#555"/>
+                                
+                                <rect x="30" y="520" width="240" height="40" rx="20" fill="#007bff"/>
+                                <text x="150" y="545" fill="#fff" font-family="Arial" font-size="12" text-anchor="middle">EXECUTE</text>
+                            </svg>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<span id="portfolio" class="anchor-offset"></span>
+    <section  class="sec-padding">
+        <div class="container">
+            <div class="row margin-bottom-3">
+                 <div class="col-md-12 text-center">
+                    <h2 class="uppercase font-weight-700 margin-top-4" style="letter-spacing: -1px;">Wybrane Projekty</h2>
+                    <div class="title-line"></div>
+                 </div>
+            </div>
+            <div class="row margin-bottom-5">
+                <div class="col-md-7 margin-bottom project-card">
+                    <a href="/work/recepty-orlowo" class="d-block position-relative overflow-hidden rounded">
+						<img src="{{asset('images/recepty/thumb.jpg')}}" 
+                             alt="Recepty Orłowo" class="img-responsive project-thumb">
+                    </a>
+                    <div class="margin-top-2">
+                        <span class="tech-badge">CRO & Data</span>
+                        <span class="tech-badge">SQL</span>
+                        <h3 class="font-weight-600 margin-top-1"><a href="/work/recepty-orlowo" class="text-dark">Optymalizacja Recept</a></h3>
+                        <p class="text-gray">Analiza danych + testy A/B = +28% konwersji.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-5 margin-bottom project-card">
+					<a href="/work/doskonali" class="d-block position-relative overflow-hidden rounded">
+						<img src="{{asset('images/doskonali/thumb.jpg')}}" 
+							alt="Doskonali - retrospektywa projektowa" class="img-responsive project-thumb">
+					</a>
+                    <div class="margin-top-2">
+                        <span class="tech-badge">Strategy</span>
+                        <span class="tech-badge">Failure Analysis</span>
+                        <h3 class="font-weight-600 margin-top-1"><a href="/work/doskonali" class="text-dark">Doskonali.pl</a></h3>
+                        <p class="text-gray">Lekcja zarządzania budżetem i "Scope Creep".</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-5 margin-bottom project-card">
+					<a href="/work/przychodnia-orlowo" class="d-block position-relative overflow-hidden rounded">
+						<img src="{{asset('images/przychodnia/thumb.jpg')}}" 
+							alt="Przychodnia Orłowo" class="img-responsive project-thumb">
+					</a>
+                    <div class="margin-top-2">
+                        <span class="tech-badge">Web Dev</span>
+                        <span class="tech-badge">UX Design</span>
+                        <h3 class="font-weight-600 margin-top-1"><a href="/work/przychodnia-orlowo" class="text-dark">Przychodnia Orłowo</a></h3>
+                        <p class="text-gray">Przebudowa serwisu internetowego przychodni lekarskiej.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-7 margin-bottom project-card">
+                    <a href="/work/autoplatform" class="d-block position-relative overflow-hidden rounded">
+                        <img src="/images/autoplatform/thumb.png" 
+                             alt="Projekt Autoplatform" class="img-responsive project-thumb">
+                    </a>
+                    <div class="margin-top-2">
+                        <span class="tech-badge">UX Design</span>
+                        <h3 class="font-weight-600 margin-top-1"><a href="/work/autoplatform" class="text-dark">Autoplatform</a></h3>
+                        <p class="text-gray">Design Thinking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

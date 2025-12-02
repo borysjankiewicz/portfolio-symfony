@@ -1,0 +1,171 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Case Study | Borys Jankiewicz{% endblock %}
+{% block meta_description %}Case study procesu Product Discovery i Design Thinking{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+<style>
+	.cs-image-full { width: 100%; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+	.cs-section-title { margin-top: 50px; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 1.5rem; }
+	.kpi-card { background: #f9f9f9; padding: 20px; text-align: center; border-radius: 4px; border: 1px solid #eee; margin-bottom: 20px; }
+	.kpi-value { font-size: 2.5rem; font-weight: 800; color: #007bff; display: block; line-height: 1; margin-bottom: 5px; }
+	.kpi-label { font-size: 0.85rem; text-transform: uppercase; color: #666; font-weight: 600; }
+	.meta-box { background: #fff; padding: 25px; }
+	.tech-badge { display: inline-block; background: #eee; padding: 4px 10px; border-radius: 4px; font-size: 12px; margin: 0 2px 5px 0; font-weight: 600; color: #333; }
+	.cs-quote {
+		background: #f9f9f9;
+		padding: 30px;
+		border-left: 4px solid #007bff;
+		font-style: italic;
+		color: #555;
+		font-size: 16px;
+		margin: 40px 0;
+	}
+</style>
+
+<style>
+
+	/* SCREENSHOTS & LIGHTBOX */
+	.gallery-item {
+		display: block;
+		margin-bottom: 30px;
+		position: relative;
+		overflow: hidden;
+		border: 1px solid #eee;
+		cursor: zoom-in;
+	}
+	.gallery-img {
+		width: 100%;
+		transition: transform 0.4s ease;
+	}
+	.gallery-item:hover .gallery-img {
+		transform: scale(1.03);
+	}
+
+	/* NAV FIX */
+	.navbar-brand h3 { margin: 0; line-height: 1; }
+</style>
+<style>
+    
+    /* SEKCJE */
+    .section-white { background-color: #fff; padding: 100px 0; }
+    
+    /* Sekcja Ciemna - idealnie czarna lub bardzo ciemna szarość */
+    .section-dark { 
+        background-color: #111; 
+        color: #fff; 
+        padding: 100px 0; 
+    }
+    .section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4, .section-dark strong { 
+        color: #fff !important; 
+    }
+    .section-dark p, .section-dark li, .section-dark span { 
+        color: #ccc; 
+    }
+
+    /* UKŁAD 3/9 (Sticky description) */
+    .sticky-col {
+        /* Opcjonalnie: position: sticky; top: 100px; */
+    }
+    
+    .section-title {
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: block;
+        line-height: 1.2;
+    }
+    
+    .section-desc {
+        font-size: 15px;
+        margin-bottom: 30px;
+        opacity: 0.8;
+    }
+    
+    /* GRAFIKI (BEZ CIENI, FLAT) */
+    .cs-image {
+        width: 100%;
+        display: block;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 0;
+    }
+    
+    /* Boxy dla Pain Points */
+    .pp-box {
+        background: #f9f9f9;
+        padding: 20px;
+        border-left: 4px solid #007bff;
+        margin-bottom: 20px;
+    }
+    .pp-title { font-weight: 700; font-size: 14px; text-transform: uppercase; color: #111; display: block; margin-bottom: 5px; }
+    
+    /* Persona Card (Flat) */
+    .persona-flat {
+        border: 1px solid #eee;
+        padding: 20px;
+        height: 100%;
+    }
+
+    /* NAV FIX */
+    .navbar-brand h3 { margin: 0; line-height: 1; }
+</style>
+
+
+{% endblock %}
+
+{% block all %}
+<section class="hero-about">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="content">
+				{% block hero %}
+				{% endblock %}
+
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+    <div class="container"><div class="divider-line solid light"></div></div>
+
+<section class="sec-padding">
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-8">{% block summary%}{% endblock %}</div>
+
+		<div class="col-md-4">
+
+			<div class="meta-box margin-bottom-3">
+				{% block info %}
+				{% endblock%}
+			</div>
+
+			<div class="text-center">
+				<h5 class="font-weight-6">Potrzebujesz podobnej analizy?</h5>
+				<p class="small text-gray">Pomagam firmom znajdować uciekające przychody w procesach online.</p>
+				<a href="/contact" class="btn btn-dark btn-round uppercase btn-small">Skontaktuj się</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+</section>
+{% block sections %}
+{% endblock sections %}
+
+<section class="sec-padding section-dark section-bottom text-center" style="background-color: #111;">
+<div class="container">
+	<h2 class="text-white uppercase font-weight-700">Więcej projektów?</h2>
+	<a href="/#portfolio" class="btn btn-blak-border margin-top-2">Wróć do portfolio</a>
+</div>
+</section>
+
+{% endblock all %}
+

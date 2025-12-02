@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% import 'macros/images.html.twig' as img %}
+
+{% block stylesheets %}
+{{parent()}}
+
+{% endblock %}
+
+{% block all %}
+
+
+{% block sections %}
+{% endblock sections %}
+
+<section class="sec-padding section-dark section-bottom text-center" style="background-color: #111;">
+<div class="container">
+	<h2 class="text-white uppercase font-weight-700">Szukasz Product managera?</h2>
+	<a href="/contact" class="btn btn-blak-border margin-top-2">Skontaktuj się ze mną!</a>
+</div>
+</section>
+
+{% endblock all %}
+

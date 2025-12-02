@@ -1,0 +1,6 @@
+/* Importuj style zewnętrzne tutaj */
+@import "../lib/bootstrap/bootstrap.min.css"; /* Ścieżka relatywna do pliku app.css */
+@import "../lib/megamenu/stylesheets/screen.css";
+@import "../lib/magnific-popup/magnific-popup.css";
+@import "../css/default.css";
+@import "../css/custom.css";
