@@ -14,12 +14,12 @@ export default class extends Controller {
         }
     }
 
-    async submit(event) {
+
+async submit(event) {
         event.preventDefault();
 
-        // 0. Szybkie sprawdzenie, czy mamy gdzie wysłać
         if (!this.urlValue) {
-            this.showMessage('Błąd konfiguracji: Brak adresu API. Spróbuj później.', 'error');
+            this.showMessage('Błąd konfiguracji: Brak adresu API.', 'error');
             return;
         }
 
@@ -39,34 +39,37 @@ export default class extends Controller {
                 body: JSON.stringify(data)
             });
 
-            // 1. OBSŁUGA BŁĘDÓW HTTP (404, 500, 502)
-            // Jeśli Lambda nie istnieje (404) lub AWS ma awarię (500)
-            if (!response.ok) {
-                throw new Error(`Server Error: ${response.status}`);
+            // ZMIANA: Najpierw parsujemy odpowiedź, niezależnie od statusu (200 czy 500)
+            let result;
+            try {
+                result = await response.json();
+            } catch (jsonError) {
+                // Jeśli serwer nie zwrócił JSON-a (np. timeout gatewaya), rzucamy błąd
+                throw new Error(`Critical Server Error: ${response.status}`);
             }
 
-            // Próbujemy odczytać JSON tylko jeśli status jest OK
-            const result = await response.json();
-
-            // 2. OBSŁUGA LOGIKI BIZNESOWEJ (Lambda działa, ale np. walidacja nie przeszła)
-            if (result.success) {
+            // Teraz sprawdzamy logikę
+            if (response.ok && result.success) {
+                // SUKCES (Status 200 + success: true)
                 this.showMessage('Dziękuję! Wiadomość została wysłana.', 'success');
                 this.formTarget.reset();
             } else {
-                // Lambda zwróciła błąd (np. "Puste pole")
-                this.showMessage(result.error || 'Wystąpił błąd walidacji.', 'error');
+                // BŁĄD ZNANY (Status 4xx/5xx LUB success: false)
+                // Tutaj wyświetlimy komunikat z Lambdy (np. "Błąd serwera pocztowego")
+                const errorMessage = result.error || 'Wystąpił nieznany błąd.';
+                this.showMessage(errorMessage, 'error');
             }
 
         } catch (error) {
-            // 3. OBSŁUGA BŁĘDÓW KRYTYCZNYCH (Sieć, DNS, CORS, lub throw powyżej)
-            console.error('Błąd wysyłania:', error);
-            
-            // Komunikat o braku połączenia
-            this.showMessage('Nie można wysłać formularza (błąd połączenia). Spróbuj ponownie później.', 'error');
+            // BŁĄD SIECIOWY (Brak internetu, CORS, błąd DNS)
+            console.error('Network Error:', error);
+            this.showMessage('Nie można wysłać formularza (problem z siecią).', 'error');
         } finally {
             this.lockButton(false);
         }
     }
+
+
 
     // --- UI Helpers ---
 
