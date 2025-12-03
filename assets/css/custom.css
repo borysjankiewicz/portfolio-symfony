@@ -24,6 +24,10 @@ body {
         /*color: #1a1b1f;*/
     }
 
+    h1.single{
+		margin:0;
+    }
+
     ul.nav.navbar-nav.top-nav {
     font-size: 14px;
 }
@@ -277,7 +281,12 @@ body {
 
 
 
-	.sec-padding{padding-top:60px;}
+	.sec-padding{
+
+		padding-top:60px;
+		padding-bottom:120px;
+
+	}
 			.no-top-padding{padding-top:0px;}
 			.med-top-padding{padding-top:48px;}
 
@@ -292,6 +301,10 @@ body {
 /* Klasa do pionowego środkowania */
 .row-v-center {
     align-items: center; /* To jest klucz do sukcesu! */
+}
+
+.footer-quick-links li {
+	 margin: 0; 
 }
 
 

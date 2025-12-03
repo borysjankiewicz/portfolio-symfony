@@ -32,6 +32,12 @@ final class MainController extends AbstractController
         ]);
     }
 
+    #[Route('/privacy', name: 'privacy')]
+    public function privacy(): Response
+    {
+        return $this->render('page/privacy.html.twig', [
+        ]);
+    }
 
     #[Route('/work/recepty-orlowo', name: 'recepty')]
     public function recepty(): Response
