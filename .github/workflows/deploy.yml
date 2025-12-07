@@ -1,0 +1,71 @@
+name: Build and Deploy to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: prod # <--- Wersja Produkcyjna bez niepotrzebnych bibliotek
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🐘 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2' # Dostosuj do swojej wersji PHP
+          extensions: ctype, iconv, xml, intl
+          tools: composer:v2, symfony-cli
+
+      - name: 📦 Install Dependencies
+        run: composer install --no-dev --optimize-autoloader --classmap-authoritative
+
+      - name: 🎨 Compile Assets
+        run: php bin/console asset-map:compile
+
+      - name: 🚀 Start Symfony Web Server
+        run: |
+          symfony server:start --port=8000 --no-tls --daemon
+          sleep 5
+
+      - name: 🕸️ Crawl & Generate Static Site
+        run: |
+          mkdir dist
+          wget \
+            --mirror \
+            --page-requisites \
+            --adjust-extension \
+            --convert-links \
+            --no-parent \
+            --no-host-directories \
+            --directory-prefix=dist \
+            http://127.0.0.1:8000
+
+      # Fix usuwający parametry query string (np. ?v=1) z nazw plików
+      - name: 🛠️ Clean filenames
+        run: find dist -name "*\?*" -type f -exec bash -c 'mv "$1" "${1%\?*}"' _ {} \;
+
+      - name: ☁️ Upload to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+        # Zarządzanie uprawnieniami globalnie a nie przez acl
+          args: --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'eu-west-1' # <-- UPEWNIJ SIĘ, ŻE REGION JEST DOBRY
+          SOURCE_DIR: 'dist'
+
+      - name: 🔄 Invalidate CloudFront Cache
+        # Ta komenda mówi: "Wyczyść wszystko (/*) z cache natychmiast"
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'eu-west-1' # Upewnij się, że region jest zgodny z Twoim AWS

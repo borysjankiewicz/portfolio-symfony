@@ -1,0 +1,361 @@
+/* Importuj style zewnętrzne tutaj */
+@import "../lib/bootstrap/bootstrap.min.css"; /* Ścieżka relatywna do pliku app.css */
+@import "../lib/megamenu/stylesheets/screen.css";
+@import "../lib/magnific-popup/magnific-popup.css";
+@import "../lib/theme/default.css";
+
+
+
+
+    /* GLOBALNE */
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+body {
+    font: 16px 'Open Sans', sans-serif;
+    font-style: normal;
+    color: #727272;
+        font-weight: 400;
+    line-height: 28px;
+
+}
+
+.header-placeholder {
+    height: 97px; /* Wpisz tu dokładną wysokość swojego nagłówka */
+    width: 100%;
+    position: relative;
+}
+
+    h1, h2, h3, h4, h5, h6, .uppercase, .btn { 
+    	font-family: 'Montserrat', sans-serif;
+        /*color: #1a1b1f;*/
+    }
+
+    h1.single{
+		margin:0;
+    }
+
+    ul.nav.navbar-nav.top-nav {
+    font-size: 14px;
+}
+
+.navbar-toggle {
+    margin-top: 20px;
+}
+
+.anchor-offset {
+    display: block;
+    position: relative;
+    top: -110px; /* Wysokość Twojego menu + mały zapas */
+    visibility: hidden;
+}
+
+
+
+
+
+
+    /* HERO SECTION - GÓRY/MGŁA */
+	.logo img{
+		height:64px;
+	}
+
+	.header-section .logo {
+    display: inline-block;
+    margin: 16px 0;
+}
+
+    .hero-engineering {
+    background: url(/images/sliders/17.jpg) center center no-repeat;
+        background-size: cover;
+        position: relative;
+        height: 100vh;
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+/*
+ *    .hero-engineering {
+ *    background-color: #111;
+ *    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+ *    background-size: 50px 50px;
+ *    padding: 0;
+ *    position: relative;
+ *    height: 100vh;
+ *    display: flex;
+ *    align-items: center;
+ *    overflow: hidden;
+ *    transform: translateZ(0);
+ *}
+ */
+
+    .hero-engineering::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* TYPOGRAFIA */
+    .hero-big-text {
+        font-size: 60px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-sub-text {
+        font-size: 16px;
+        color: #ccc;
+        font-weight: 400;
+        margin-bottom: 40px;
+        max-width: 500px;
+    }
+
+    /* BUTTON */
+    .btn-blak-border {
+        border: 2px solid #fff;
+        color: #fff;
+        background: transparent;
+        padding: 14px 35px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: 0;
+        transition: all 0.3s;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+    .btn-blak-border:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    /* --- KONTENER GRAFIK --- */
+    .visuals-container {
+        position: relative;
+        height: 550px;
+        width: 100%;
+    }
+
+    /* TABLET (TŁO - WYKRESY) */
+    .card-tablet {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        width: 70%;
+        z-index: 1;
+        filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.5));
+        transition: transform 0.5s ease;
+    }
+
+    /* TELEFON (PRZÓD - CIEMNY WIREFRAME) */
+    .card-phone {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        width: 35%;
+        z-index: 5;
+        filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.6));
+        opacity: 0.95; /* Lekka przezroczystość */
+        transition: transform 0.5s ease;
+    }
+
+    /* Efekt 3D przy najechaniu */
+    .visuals-container:hover .card-tablet { transform: translateX(10px); }
+    .visuals-container:hover .card-phone { transform: translateX(-10px) scale(1.02); }
+
+    /* RESPONSYWNOŚĆ */
+    @media (max-width: 992px) {
+        .hero-big-text { font-size: 40px; text-align: center; }
+        .hero-sub-text { text-align: center; margin: 0 auto 30px auto; }
+        .hero-content { text-align: center; }
+        .visuals-container { display: none; }
+    }
+
+
+/* Styl dla miniatury projektu */
+    .project-thumb { 
+        height: 450px; 
+        object-fit: cover; 
+        width: 100%; 
+        
+        /* Ustawienie czarno-białe na start */
+        -webkit-filter: grayscale(100%); /* Dla starszych przeglądarek */
+        filter: grayscale(100%);
+        
+        /* Płynne przejście (czas trwania 0.4s) */
+        transition: all 0.4s ease-in-out; 
+    }
+
+    /* Efekt po najechaniu myszką na kafel projektu (.project-card) */
+    .project-card:hover .project-thumb { 
+        /* Przywrócenie kolorów */
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+        
+        /* Opcjonalnie: delikatne powiększenie dla lepszego efektu */
+        transform: scale(1.03); 
+    }
+
+
+    .tech-badge {
+        font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
+        background: #f0f0f0; padding: 5px 10px; color: #333; margin-right: 5px; display: inline-block;
+    }
+
+@media only screen and (min-width: 1001px) {
+    .header-section ul li:hover > a, .header-section ul li.active > a {
+        color: black;
+        font-weight: bold;
+    }
+    .wf-lead-text {
+        font-size: 56px;
+    }
+
+
+}
+
+
+.scrollup {
+    background: black url(../images/scroll-top-arrow.png) no-repeat 15px 16px;
+}
+
+
+
+
+    /* --- NOWY HERO SECTION (PIXEL PERFECT) --- */
+    .hero-about { 
+        background-color: #fff; 
+        padding: 60px 0px;
+        text-align: left;
+    }
+	.hero-about .content{
+		padding: 0 48px
+
+	}
+
+    /* 1. Imię i Nazwisko (20px) */
+    .wf-name {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 500; /* Bold */
+        color: #1a1b1f;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    /* 2. Rola (16px) */
+    .wf-role-tag {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400; /* Medium */
+        color: #1a1b1f;
+        margin-bottom: 40px;
+        display: block;
+    }
+
+    /* 3. Nagłówek (36px) */
+    .wf-lead-text {
+        font-family: 'Montserrat', sans-serif;
+        /*font-size: 56px;*/
+        line-height: 1.3; /* ok. 46px */
+        font-weight: 400; /* Bold */
+        color: #1a1b1f;
+        margin-bottom: 30px;
+    }
+
+    /* 4. Opis (30px) */
+    .wf-body-text {
+        font-family: 'Open Sans', sans-serif; /* Lub Montserrat jeśli wolisz */
+        font-size: 30px;
+        line-height: 1.4; /* ok. 42px */
+        font-weight: 400; /* Regular */
+        color: #1a1b1f;
+    }
+
+
+
+	.sec-padding{
+
+		padding-top:60px;
+		padding-bottom:120px;
+
+	}
+			.no-top-padding{padding-top:0px;}
+			.med-top-padding{padding-top:48px;}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap; /* Pozwala nałamanie wierszy na mobilkach */
+}
+
+/* Klasa do pionowego środkowania */
+.row-v-center {
+    align-items: center; /* To jest klucz do sukcesu! */
+}
+
+.footer-quick-links li {
+	 margin: 0; 
+}
+
+
+@media (min-width: 768px) {
+.navbar-nav {
+float: right;
+}
+}
+
+.section-bottom{
+    padding: 80px 0;
+}
+section:has(> .container > .row > .col-md-8:empty) {
+    display: none;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .header-section {
+		 padding-bottom: 0px;
+	 }
+	.header-section #menu > ul {
+		background: #fff;
+		margin: 50px auto 0;
+    }
+	.header-section #menu > ul li.hover > a, .header-section #menu > ul li.active > a {
+        color: #000000;
+        font-weight: bold;
+    }
+        .hero-about {
+        padding: 60px 0 60px;
+    }
+    .sec-padding {
+    padding-top: 60px;
+}
+ }
+
+ /* Poprawka dla Cloudflare na małych ekranach */
+@media (max-width: 400px) {
+    .cf-turnstile {
+        max-width:80%; /* Zmniejsz do 75% */
+        transform-origin: 0 0;  /* Skaluj od lewego górnego rogu */
+        /*margin-bottom: -15px;   [> Skompensuj puste miejsce po skalowaniu <]*/
+    }
+}

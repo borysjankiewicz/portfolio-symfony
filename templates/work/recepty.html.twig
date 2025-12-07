@@ -1,0 +1,143 @@
+{% extends 'work.html.twig' %}
+
+{% block title %}Optymalizacja Recepty Orłowo (+28% CRO) | Case Study{% endblock %}
+{% block meta_description %}Jak wykorzystałem analizę danych i SQL do zwiększenia konwersji o 28%? Przeczytaj case study o optymalizacji procesu zamawiania recept.{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+{% endblock %}
+
+{% block hero %}
+<div class="wf-role-tag">Data & Analytics Case Study</div>
+<h2 class="wf-lead-text">
+	Jak analiza danych (Amplitude, SQL) i prosta zmiana UX zwiększyły konwersję formularza o 28%.
+</h2>
+{% endblock %}
+
+
+{% block info %}
+<h5 class="font-weight-6 uppercase">Info o projekcie</h5>
+<ul class="iconlist-2">
+	<li><strong>Klient:</strong> Przychodnia "Orłowo"</li>
+	<li><strong>Rola:</strong> Tech PM / Analyst</li>
+	<li><strong>Czas:</strong> 2025</li>
+</ul>
+
+<div class="divider-line solid light margin-top-2 margin-bottom-2"></div>
+
+<h5 class="font-weight-6 uppercase">Tech Stack</h5>
+<div>
+	<span class="tech-badge">Amplitude</span>
+	<span class="tech-badge">BigQuery (SQL)</span>
+	<span class="tech-badge">Google Tag Manager</span>
+	<span class="tech-badge">Figma</span>
+</div>
+
+{% endblock %}
+
+
+{% block summary %}
+<h3 class="cs-section-title">Problem Biznesowy</h3>
+<p>Przychodnia "Orłowo" borykała się z problemem dużej liczby telefonów od pacjentów (10-15 dziennie), którzy utykali w formularzu online. Mimo że system działał technicznie, pacjenci rezygnowali w trakcie procesu.</p>
+<div class="alert alert-danger bg-light border-0">
+	<strong>Kluczowa metryka:</strong> 30% użytkowników porzucało proces na pierwszym kroku (Drop-off Rate).
+</div>
+
+<h3 class="cs-section-title">Analiza Danych (Discovery)</h3>
+<p>Wdrożyłem pipeline analityczny oparty o <strong>Google Tag Manager, Amplitude i BigQuery</strong>. Dane ilościowe jednoznacznie wskazały "wąskie gardło" na samym początku lejka.</p>
+
+<div class="row margin-top-2">
+	<div class="col-md-12">
+		<img src="{{asset('images/recepty/dropoff.png')}}" class="cs-image-full" style="border:1px solid #eee;" alt="Wykres Lejka">
+		<span class="text-gray text-center d-block small">Wykres z Amplitude: Gwałtowny spadek na kroku 'Weryfikacja'.</span>
+	</div>
+</div>
+<div class="row">
+
+		<div class="col-md-12">
+
+			<h3 class="cs-section-title">Analiza jakościowa</h3>
+			<p>Aby zrozumieć przyczyny, przeprowadziłem serię wywiadów. Szybko potwierdziłem hipotezę:</p>
+			<p> <strong>Bariera Zaufania:</strong> Pacjenci bali się podawać PESEL.</p>
+			<p> <strong>Bariera Wiedzy:</strong> Niepewność co do posiadania IKP.</p>
+
+			<div class="cs-quote">
+				"Nie mam adresu email ani IKP. Nie wpiszę swojego peselu. Wolę umówić się przez rejestrację." <br>
+				<span style="font-size: 14px; color: #007bff; font-weight: 600;">- Joanna, 72 lata</span>
+			</div>
+
+			<h3 class="cs-section-title">Analiza ilościowa</h3>
+
+			<p>Analiza lejka w Amplitude natychmiast ujawniła krytyczny problem: <strong>28,13% użytkowników odpadało na Kroku 1</strong> (Email/PESEL). Był to wskaźnik niemal czterokrotnie wyższy niż na kolejnym etapie.</p>
+
+			<div class="row margin-top-4">
+				<div class="col-md-6">
+					<img src="{{asset('images/recepty/dropoff-hist.png')}}" class="cs-image" alt="Drop off hist">
+				</div>
+				<div class="col-md-6">
+					<img src="{{asset('images/recepty/steps-duration.png')}}" class="cs-image" alt="Duration">
+				</div>
+			</div>
+			<p class="text-center small text-gray">Dane pokazują, że mimo największego drop-off na starcie, najwięcej czasu (184s) zajmuje wybór leków (Krok 2).</p>
+
+
+
+
+
+
+			<h3 class="cs-section-title">Projekt</h3>
+
+
+
+			<img src="{{asset('images/recepty/mockups.jpg')}}" alt="Recepty Mockup" class="cs-image-full">
+
+			<h3 class="cs-section-title">Wyniki Biznesowe</h3>
+			<p>Zmiana została wdrożona jako <strong>Test A/B</strong> bez ingerencji w backend przychodni (via GTM).</p>
+
+			<div class="row margin-top-2">
+				<div class="col-md-4">
+					<div class="kpi-card">
+						<span class="kpi-value">80%</span>
+						<span class="kpi-label">Completion Rate<br>(wzrost z 62%)</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="kpi-card">
+						<span class="kpi-value">&lt;10%</span>
+						<span class="kpi-label">Drop-off Rate<br>(spadek z 30%)</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="kpi-card">
+						<span class="kpi-value">0</span>
+						<span class="kpi-label">Telefonów<br>na recepcję</span>
+					</div>
+				</div>
+			</div>
+
+		
+
+
+
+
+
+		</div>
+
+		<div class="col-md-4">
+
+
+
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block sections %}
+
+
+
+
+
+{% endblock sections %}
+

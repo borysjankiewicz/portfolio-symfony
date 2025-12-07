@@ -1,0 +1,275 @@
+{% extends 'work.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+
+<style>
+    /* GLOBALNE */
+    body { font-family: 'Open Sans', sans-serif; color: #111; line-height: 1.6; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; color: #111; margin-top: 0; }
+    
+    /* SEKCJE */
+    .section-white { background-color: #fff; padding: 80px 0; }
+    .section-dark { background-color: #111; color: #fff; padding: 80px 0; }
+    .section-dark h3, .section-dark p, .section-dark strong { color: #fff; opacity: 0.9; }
+    .section-dark span, .section-dark li { color: #ccc; }
+
+    /* UKŁAD 3/9 */
+    .section-title {
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: block;
+        line-height: 1.2;
+    }
+    
+    .section-desc {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 30px;
+    }
+    .section-dark .section-desc { color: #ccc; }
+
+    /* Hero Full Width */
+    .hero-image-full {
+        width: 100%;
+        height: auto;
+        display: block;
+        max-height: 600px;
+        object-fit: cover;
+    }
+
+    /* AUDYT UX - FLEX GRID */
+    .audit-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px; /* Korekta marginesów bootstrapa */
+    }
+    
+    .audit-card {
+        background: #222;
+        padding: 30px;
+        border: 1px solid #333;
+        height: 100%; /* Równa wysokość */
+        transition: 0.3s;
+    }
+    .audit-card:hover { border-color: #007bff; transform: translateY(-5px); }
+    .audit-icon { font-size: 24px; color: #007bff; margin-bottom: 15px; display: block; }
+    .audit-title { color: #fff; font-weight: 700; text-transform: uppercase; font-size: 14px; margin-bottom: 10px; display: block; }
+    .audit-text { color: #ccc; font-size: 14px; line-height: 1.5; }
+
+    /* CELE PROJEKTOWE (Styl Kart - jak certyfikaty) */
+    .goal-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-left: 4px solid #007bff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        display: flex;
+        align-items: center;
+    }
+    .goal-icon { font-size: 20px; margin-right: 15px; color: #007bff; min-width: 30px; text-align: center; }
+    .goal-text { font-weight: 600; color: #333; font-size: 15px; }
+
+    /* SCREENSHOTS & LIGHTBOX */
+    .gallery-item {
+        display: block;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #eee;
+        cursor: zoom-in;
+    }
+    .gallery-img {
+        width: 100%;
+        transition: transform 0.4s ease;
+    }
+    .gallery-item:hover .gallery-img {
+        transform: scale(1.03);
+    }
+
+    /* NAV FIX */
+    .navbar-brand h3 { margin: 0; line-height: 1; }
+</style>
+{% endblock %}
+
+{% block hero %}
+
+<div class="wf-role-tag">Data & Analytics Case Study</div>
+<h2 class="wf-lead-text">Unowocześnienie strony internetowej: RWD, WCAG & Optymalizacja UX.</h2>
+
+<p class="wf-body-text">
+Poprzednia wersja serwisu przychodni nie spełniała wymogów dostępności cyfrowej i była nieczytelna na urządzeniach mobilnych.
+</p>
+
+
+{% endblock%}
+
+{% block summary %}{% endblock%}
+
+{% block sections %}
+<div class="container-fluid nopadding">
+	<img src="{{asset('images/przychodnia/banner.jpg')}}" class="hero-image-full" alt="Orłowo Banner">
+</div>
+
+
+<section class="section-white">
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h4 class="font-weight-700 margin-bottom-3 uppercase">Cele Projektowe</h4>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="goal-card">
+						<div class="goal-icon"><i class="fa fa-mobile"></i></div>
+						<div class="goal-text">Wdrożenie RWD (Responsywność)</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="goal-card">
+						<div class="goal-icon"><i class="fa fa-low-vision"></i></div>
+						<div class="goal-text">Standard WCAG (Dostępność)</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="goal-card">
+						<div class="goal-icon"><i class="fa fa-cogs"></i></div>
+						<div class="goal-text">Integracja Nowoczesnego CMS</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="goal-card">
+						<div class="goal-icon"><i class="fa fa-sitemap"></i></div>
+						<div class="goal-text">Czytelna Architektura Informacji</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+<section class="section-dark" style="background-color: #1a1a1a;">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 sticky-col">
+			<span class="section-title">Audyt UX</span>
+			<p class="section-desc">
+			Diagnoza problemów istniejącego serwisu.
+			</p>
+		</div>
+		<div class="col-md-9">
+			<div class="audit-row">
+
+				<div class="col-md-4 col-sm-6 margin-bottom-4">
+					<div class="audit-card">
+						<i class="fa fa-mobile audit-icon"></i>
+						<span class="audit-title">Wersja Mobilna</span>
+						<p class="audit-text">Treści nieczytelne na smartfonach. Konieczność powiększania widoku (pinch-to-zoom).</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 margin-bottom-4">
+					<div class="audit-card">
+						<i class="fa fa-lock audit-icon"></i>
+						<span class="audit-title">Bezpieczeństwo</span>
+						<p class="audit-text">Brak certyfikatu SSL, co obniżało zaufanie pacjentów przy przesyłaniu danych.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 margin-bottom-4">
+					<div class="audit-card">
+						<i class="fa fa-bars audit-icon"></i>
+						<span class="audit-title">Nawigacja</span>
+						<p class="audit-text">Mało intuicyjne menu, utrudniające szybkie znalezienie kontaktu i godzin przyjęć.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 margin-bottom-4">
+					<div class="audit-card">
+						<i class="fa fa-eye audit-icon"></i>
+						<span class="audit-title">Dostępność</span>
+						<p class="audit-text">Niski kontrast i brak wsparcia dla czytników ekranowych (wykluczenie cyfrowe).</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 margin-bottom-4">
+					<div class="audit-card">
+						<i class="fa fa-code audit-icon"></i>
+						<span class="audit-title">System CMS</span>
+						<p class="audit-text">Brak możliwości edycji kluczowych sekcji bez pomocy programisty.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 margin-bottom-4">
+					<div class="audit-card">
+						<i class="fa fa-language audit-icon"></i>
+						<span class="audit-title">Wersje Językowe</span>
+						<p class="audit-text">Brak obsługi wielojęzyczności, istotnej w turystycznej dzielnicy.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+<section class="section-white">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 sticky-col">
+			<span class="section-title">Elementy wymagające poprawy</span>
+			<p class="section-desc">
+			Dokumentacja stanu zastanego. Kliknij w zdjęcie, aby powiększyć.
+			</p>
+		</div>
+		<div class="col-md-9">
+			<div class="row popup-gallery">
+
+				<div class="col-md-6">
+					<a href="{{asset('images/przychodnia/1.png')}}" class="gallery-item" title="Strona główna - stara wersja">
+						<img src="{{asset('images/przychodnia/1.png')}}" class="gallery-img" alt="Screenshot 1">
+					</a>
+				</div>
+
+				<div class="col-md-6">
+					<a href="{{asset('images/przychodnia/2.png')}}" class="gallery-item" title="Brak responsywności">
+						<img src="{{asset('images/przychodnia/2.png')}}" class="gallery-img" alt="Screenshot 2">
+					</a>
+				</div>
+
+				<div class="col-md-6">
+					<a href="{{asset('images/przychodnia/3.png')}}" class="gallery-item" title="Menu nawigacyjne">
+						<img src="{{asset('images/przychodnia/3.png')}}" class="gallery-img" alt="Screenshot 3">
+					</a>
+				</div>
+
+				<div class="col-md-6">
+					<a href="{{asset('images/przychodnia/4.png')}}" class="gallery-item" title="Problemy z czytelnością">
+						<img src="{{asset('images/przychodnia/4.png')}}" class="gallery-img" alt="Screenshot 4">
+					</a>
+				</div>
+
+				<div class="col-md-6">
+					<a href="{{asset('images/przychodnia/5.png')}}" class="gallery-item" title="Panel administracyjny">
+						<img src="{{asset('images/przychodnia/5.png')}}" class="gallery-img" alt="Screenshot 5">
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+{% endblock%}
+
+

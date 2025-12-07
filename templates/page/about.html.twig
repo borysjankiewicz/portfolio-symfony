@@ -1,0 +1,259 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}O mnie | Borys Jankiewicz - TPM{% endblock %}
+{% block meta_description %}Moja ścieżka od Web Developera do Product Managera. Poznaj moje podejście do zarządzania produktem, technologii i pracy z zespołami.{% endblock %}
+{% block stylesheets %}
+{{parent()}}
+<style>
+    /* GLOBALNE */
+    
+    /* Timeline (Lewa kolumna) */
+    .timeline-box { 
+        border-left: 2px solid #e0e0e0; padding-left: 40px; padding-bottom: 60px; position: relative; 
+    }
+    .timeline-box:last-child { border-left: 2px solid transparent; padding-bottom: 0; }
+    .timeline-box::before { 
+        content: ''; width: 12px; height: 12px; background: #fff; border: 3px solid #222; 
+        position: absolute; left: -7px; top: 6px; border-radius: 50%; z-index: 1;
+    }
+    .timeline-date { 
+        font-family: 'Montserrat', sans-serif; font-weight: 700; color: #222; 
+        font-size: 14px; text-transform: uppercase; letter-spacing: 1px; 
+        margin-bottom: 8px; display: block; line-height: 24px; margin-top: 0;
+    }
+    .timeline-title { font-weight: 600; margin-bottom: 15px; margin-top: 0; font-size: 18px; color: #111; }
+    .timeline-details { margin-top: 20px; font-size: 14px; border-left: 2px solid #eee; padding-left: 20px; color: #666; }
+    .timeline-details p { margin-bottom: 10px; }
+
+    /* --- NOWY STYL CERTYFIKATÓW (Boxy jak w Blak page-about5) --- */
+    .education-box {
+        background: #fff;
+        padding: 30px;
+        margin-bottom: 30px;
+        border: 1px solid #eee; /* Czyste obramowanie */
+        display: flex;
+        align-items: flex-start;
+        transition: all 0.3s;
+        height: 100%; /* Równe wysokości */
+    }
+    
+    .education-box:hover {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transform: translateY(-3px);
+        border-color: #ff971c;
+    }
+    
+
+    .edu-icon {
+        font-size: 28px;
+        color: #222; /* Wyróżniony kolor daty/instytucji */
+        margin-right: 20px;
+        min-width: 30px;
+        text-align: center;
+        margin-top: 2px;
+    }
+
+	.education-box:hover .edu-icon{
+		}
+
+    .edu-content { flex-grow: 1; }
+
+    .edu-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 5px;
+        font-size: 14px;
+        color: #222;
+        line-height: 1.4;
+    }
+
+    .edu-meta {
+        font-family: 'Open Sans', sans-serif;
+        color: #222; /* Wyróżniony kolor daty/instytucji */
+        font-weight: 600;
+        font-size: 12px;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .edu-desc {
+        font-size: 13px;
+        line-height: 22px;
+        color: #777;
+        margin: 0;
+    }
+
+    /* Cytat */
+    .quote-section { 
+        background: #f9f9f9; padding: 40px; border-left: 4px solid #333; 
+        font-style: italic; margin: 60px 0 40px 0; color: #555; font-size: 16px; line-height: 30px;
+    }
+
+    /* Responsywność */
+    @media (max-width: 992px) {
+        .wf-lead-text { font-size: 28px; }
+        .wf-body-text { font-size: 20px; }
+    }
+</style>
+{% endblock %}
+
+{% block sections %}
+
+    <section class="hero-about">
+        <div class="container">
+            <div class="row">
+				<div class="col-md-12">
+					<div class="content">
+						<h1 class="wf-name">Borys Jankiewicz</h1>
+						<div class="wf-role-tag">Technical Product Designer (Specjalizacja: Data & Growth)</div>
+						<h2 class="wf-lead-text">
+							Technical Product Manager z ponad 15-letnim doświadczeniem w IT.
+						</h2>
+						<p class="wf-body-text">
+						Specjalizuję się w budowaniu produktów opartych na danych, od identyfikacji problemu po wdrożenie i mierzalny sukces biznesowy.
+						</p>
+
+					</div>
+				</div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container"><div class="divider-line solid light"></div></div>
+
+    <section class="sec-padding">
+        <div class="container">
+            
+            <div class="row margin-bottom-4">
+                <div class="col-md-12">
+                    <h3 class="uppercase font-weight-4 margin-bottom-4 margin-top-2">Doświadczenie Zawodowe</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-md-7">
+                    
+                    <div class="timeline-box">
+                        <span class="timeline-date">2021 – Obecnie</span>
+                        <h4 class="timeline-title">Product Manager / Growth & CRO Consultant (Freelance)</h4>
+                        <p class="text-gray">
+                            Jako konsultant produktowy, pomagam firmom optymalizować ich produkty cyfrowe, łącząc analizę danych ilościowych (Amplitude, BigQuery), badania jakościowe i wiedzę techniczną.
+                        </p>
+                        <div class="timeline-details">
+                            <p><strong>Case Study (Optymalizacja CRO):</strong> Dla przychodni "Orłowo" zidentyfikowałem 30% spadek konwersji. Zaprojektowałem rozwiązanie (Krok 0), prototyp oraz pełny pipeline analityczny.</p>
+                            <p><strong>Case Study (Retrospektywa R&D):</strong> Zarządzanie 2-letnim projektem, alokacja zasobów i kontrola budżetu.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-box">
+                        <span class="timeline-date">2016 – 2020</span>
+                        <h4 class="timeline-title">Arango Sp. z o.o. | Project Manager</h4>
+                        <p class="text-gray">
+                            Zbudowałem i zarządzałem 6-osobowym zespołem (Frontend, Backend, Grafik). Pełniłem podwójną rolę: Project Managera oraz mentora technicznego dla dewelopera backendu (Symfony).
+                        </p>
+                    </div>
+
+                    <div class="timeline-box">
+                        <span class="timeline-date">2009 – 2015</span>
+                        <h4 class="timeline-title">Softlogo | Founder / Lead Developer</h4>
+                        <p class="text-gray">
+                            Jako założyciel byłem odpowiedzialny za pełny cykl dostarczania produktu. Koordynowałem pracę zewnętrznych współpracowników, jednocześnie samodzielnie budując trzon aplikacji w Symfony.
+                        </p>
+                    </div>
+
+                    <div class="timeline-box">
+                        <span class="timeline-date">2009</span>
+                        <h4 class="timeline-title">BEST SA | Analityk baz danych</h4>
+                        <p class="text-gray">
+                            Tworzenie zaawansowanych zapytań (Transact-SQL). Raportowanie i analiza danych w MS SQL Server.
+                        </p>
+                    </div>
+
+                    <div class="timeline-box">
+                        <span class="timeline-date">2006 – 2007</span>
+                        <h4 class="timeline-title">GE Money Bank | Capacity Planner</h4>
+                        <p class="text-gray">
+                           Monitorowałem i optymalizowałem wykorzystanie zasobów operacyjnych (Capacity Management) w celu zwiększenia efektywności.
+                        </p>
+                    </div>
+
+                </div>
+                
+                <div class="col-md-5" style="padding-left: 40px;">
+                    <h3 class="uppercase font-weight-4">Dlaczego PM?</h3>
+                    <div class="quote-section">
+                        "Klient chciał zbudować klona Fixly za ułamek budżetu. Zgodziłem się. Przez dwa lata walczyłem ze 'scope creep' i nierealnymi oczekiwaniami."
+                    </div>
+                    <p class="margin-bottom-4">To doświadczenie nauczyło mnie najważniejszej lekcji: <strong>Praca PM-a nie polega na kodowaniu, ale na twardym definiowaniu zakresu MVP i walidacji hipotez ZANIM napiszemy kod.</strong></p>
+                    
+                    <a href="/contact" class="btn btn-dark btn-round uppercase margin-top-2">Skontaktuj się</a>
+                </div>
+
+            </div>
+
+            <div class="divider-line solid light margin-top-5 margin-bottom-5"></div>
+
+            <div class="row">
+                <div class="col-md-12 margin-bottom-4">
+                    <h3 class="uppercase font-weight-4 margin-top-2">Certyfikaty & Edukacja</h3>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="education-box">
+                        <div class="edu-icon"><i class="fa fa-google"></i></div>
+                        <div class="edu-content">
+                            <h5 class="edu-title">Google UX Design</h5>
+                            <span class="edu-meta">Professional Certificate • 2025</span>
+                            <p class="edu-desc">Badania użytkowników, wireframing, prototypowanie i testowanie użyteczności.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="education-box">
+                        <div class="edu-icon"><i class="fa fa-cloud"></i></div>
+                        <div class="edu-content">
+                            <h5 class="edu-title">AWS Cloud Practitioner</h5>
+                            <span class="edu-meta">Coursera / AWS • 2023</span>
+                            <p class="edu-desc">Fundamenty chmury, architektura AWS, bezpieczeństwo i modele wdrożeniowe.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="education-box">
+                        <div class="edu-icon"><i class="fa fa-bar-chart"></i></div>
+                        <div class="edu-content">
+                            <h5 class="edu-title">Google Digital Marketing</h5>
+                            <span class="edu-meta">Professional Certificate • 2023</span>
+                            <p class="edu-desc">SEO, SEM, analityka marketingowa i strategie e-commerce.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="education-box" style="border-left: 4px solid #222;"> <div class="edu-icon"><i class="fa fa-graduation-cap" style="color:#222;"></i></div>
+                        <div class="edu-content">
+                            <h5 class="edu-title">Uniwersytet Gdański</h5>
+                            <span class="edu-meta" style="color:#222;">Magister • Informatyka i Ekonometria</span>
+                            <p class="edu-desc" style="font-size:12px; margin-top:5px;">
+                                Specjalizacja: Ekonometria i Statystyka.<br>
+                                <strong>Praca mgr:</strong> "Prognozowanie wartości dodanej w handlu za pomocą zmiennych jakościowych testu koniunktury"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock sections %}
+

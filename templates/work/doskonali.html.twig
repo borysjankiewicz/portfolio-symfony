@@ -1,0 +1,50 @@
+{% extends 'work.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+{% endblock %}
+
+{% block hero %}
+
+<div class="wf-role-tag">Case Study: Product Strategy & Management</div>
+<h2 class="wf-lead-text">
+	Analiza 2-letniego projektu R&D inspirowanego platformą Fixly. <br>
+</h2>
+
+<p class="wf-body-text">
+Lekcje z zarządzania budżetem,<br>oczekiwaniami interesariuszy i zakresem projektu.
+</p>
+
+
+{% endblock%}
+
+{% block summary %}{% endblock%}
+
+{% block info %}
+
+{% endblock%}
+
+{% block sections %}
+<section class="section-dark">
+<div class="container">
+	<div class="row row-eq-height row-v-center">
+
+		<div class="col-md-1"></div>
+		<div class="col-md-6 text-right">
+
+			<span class="section-title">Problem</span>
+<p>Projekt "Doskonali.pl" miał być konkurencją dla serwisu Fixly. Jako Lead Developer i Manager, zgodziłem się zrealizować ten ambitny cel (klon oglnopolskiej platformy) przy ograniczonym budżecie. Poniższa analiza pokazuje błędy w założeniach oraz nauki płynące z nieudanego projektu, oraz różnice w sposobie zarządzania ryzykiem wtedy i teraz.</p>
+		</div>
+		<div class="col-md-1"></div>
+
+		<div class="col-md-3 sticky-col">
+			<img src="{{asset('images/doskonali/tablet.png')}}" class="cs-image" alt="Doskonali Summary">
+		</div>
+	</div>
+</div>
+</section>
+{% endblock%}
+
+

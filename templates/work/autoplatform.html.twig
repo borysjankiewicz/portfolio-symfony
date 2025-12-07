@@ -1,0 +1,281 @@
+{% extends 'work.html.twig' %}
+
+{% block title %}Autoplatform - Proces Design Thinking | Borys Jankiewicz{% endblock %}
+{% block meta_description %}Case study procesu Product Discovery i Design Thinking w branży Automotive. Jak zaprojektowaliśmy platformę sprzedażową od zera.{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+<style>
+    
+    /* SEKCJE */
+    .section-white { background-color: #fff; padding: 100px 0; }
+    
+    /* Sekcja Ciemna - idealnie czarna lub bardzo ciemna szarość */
+    .section-dark { 
+        background-color: #111; 
+        color: #fff; 
+        padding: 100px 0; 
+    }
+    .section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4, .section-dark strong { 
+        color: #fff !important; 
+    }
+    .section-dark p, .section-dark li, .section-dark span { 
+        color: #ccc; 
+    }
+
+    /* UKŁAD 3/9 (Sticky description) */
+    .sticky-col {
+        /* Opcjonalnie: position: sticky; top: 100px; */
+    }
+    
+    .section-title {
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: block;
+        line-height: 1.2;
+    }
+    
+    .section-desc {
+        font-size: 15px;
+        margin-bottom: 30px;
+        opacity: 0.8;
+    }
+    
+    /* GRAFIKI (BEZ CIENI, FLAT) */
+    .cs-image {
+        width: 100%;
+        display: block;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 0;
+    }
+    
+    /* Boxy dla Pain Points */
+    .pp-box {
+        background: #f9f9f9;
+        padding: 20px;
+        border-left: 4px solid #007bff;
+        margin-bottom: 20px;
+    }
+    .pp-title { font-weight: 700; font-size: 14px; text-transform: uppercase; color: #111; display: block; margin-bottom: 5px; }
+    
+    /* Persona Card (Flat) */
+    .persona-flat {
+        border: 1px solid #eee;
+        padding: 20px;
+        height: 100%;
+    }
+
+    /* NAV FIX */
+    .navbar-brand h3 { margin: 0; line-height: 1; }
+</style>
+{% endblock %}
+
+{% block hero %}
+<h2 class="wf-lead-text">Autoplatform</h2>
+
+<p class="">Brakuje narzędzia umożliwiającego łatwą i wygodną sprzedaż aut bez opłat z góry, które pozwala na osiągnięcie atrakcyjnej ceny dla sprzedającego. Za używanie aplikacji takich jak Oto Moto pobierane są wysokie opłaty niezależnie od rezultatu. Z kolei darmowe aplikacje takie jak Autoplac nie są tak łatwe w obsłudze. Ostatnim typem narzędzi są dealerzy aut używanych np Auto Search czu Auto Punkt oferujący niższe ceny od uzyskiwanych w bezpośredniej sprzedaży.</p>
+
+{% endblock%}
+
+{% block summary %}{% endblock%}
+
+{% block info %}
+
+{% endblock%}
+
+
+
+{% block sections %}
+<section class="section-dark">
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-1"></div>
+		<div class="col-md-6 ">
+
+			<span class="section-title">Research Summary</span>
+			<p class="section-desc">
+			Większość wiodących portali (OtoMoto, OLX) wymaga wysokich opłat niezależnie od rezultatu. 
+			Przeprowadziłem research na podstawie opinii użytkowników zamieszczonych na portalach takich jak TrustPilot.
+			</p>
+
+			Research summary
+			<p>Większość wiodących portali z ogłoszeniami wymaga uiszczenia opłat z góry za dodanie ogłoszenia np Oto Moto, Olx</p>
+			<p></p>
+			<p>Przeprowadziłem research  na podstawie opinii użytkowników zamieszczonych na portalach takich jak  Trust Pilot.. Bazującna  tych opiniach, stworzyłem dwie user personas: właściciela firmy Andrzeja oraz młodego specjalisty Krzysztofa.Na podstawie reaserchu zdefiniowałem pain points:‍‍</p>
+			<p></p><ul>
+				<li>FINANCIAL -  Nie chcę płacić z góry.Nanpopularniejsze portale z ogłoszeniami są płatne.</li>
+				<li>PRODUCT - Oto Moto i Allegro są bardzo rozbudowane. Szukam narzędzia łatwego i wygodnego</li>
+				<li>PROCESS  - Żeby sprzedać korzystnie samochód potrzeba wielu umiejętności. Nie mam czasu na robienie zdjęć, pisanie tekstów marketingowych itp</li>
+				<li>SUPPORT - Nie mam wsparcia. Nie znam się na tym</li>
+			</ul>               
+		</div>
+		<div class="col-md-1"></div>
+
+		<div class="col-md-3 sticky-col">
+			<img src="{{asset('images/autoplatform/phone.png')}}" class="cs-image" alt="Research Summary">
+		</div>
+	</div>
+</div>
+</section>
+
+    <section class="section-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 sticky-col">
+                    <span class="section-title">Pain Points</span>
+                    <p class="section-desc">
+                        Na podstawie researchu zdefiniowałem główne problemy użytkowników.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="pp-box">
+                                <span class="pp-title">1. FINANCIAL</span>
+                                <p>"Nie chcę płacić z góry. Najpopularniejsze portale są płatne, nawet jak nie sprzedam auta."</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pp-box">
+                                <span class="pp-title">2. PRODUCT</span>
+                                <p>"OtoMoto i Allegro są bardzo rozbudowane. Szukam narzędzia łatwego i wygodnego."</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pp-box">
+                                <span class="pp-title">3. PROCESS</span>
+                                <p>"Żeby sprzedać korzystnie samochód potrzeba wielu umiejętności. Nie mam czasu na robienie zdjęć."</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pp-box">
+                                <span class="pp-title">4. SUPPORT</span>
+                                <p>"Nie mam wsparcia. Nie znam się na tym."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-white" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 sticky-col">
+                    <span class="section-title">Faza Empatyzacji</span>
+                    <p class="section-desc">
+                        Stworzyłem dwie user personas: właściciela firmy Andrzeja oraz młodego specjalisty Krzysztofa.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <div class="row margin-bottom-3">
+                        <div class="col-md-12">
+                            <img src="{{asset('images/autoplatform/persona1.png')}}" class="cs-image" alt="Persona Andrzej">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="{{asset('images/autoplatform/persona2.png')}}" class="cs-image" alt="Persona Krzysztof">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 sticky-col">
+                    <span class="section-title">Faza Definiowania</span>
+                    <p class="section-desc">
+                        <strong>Market Gap:</strong> Brakuje narzędzia umożliwiającego łatwą sprzedaż bez opłat z góry.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <img src="{{asset('images/autoplatform/define.png')}}" class="cs-image" alt="Define Phase">
+                    <br>
+                    <img src="{{asset('images/autoplatform/triangle.png')}}" class="cs-image" alt="Market Gap">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 sticky-col">
+                    <span class="section-title">Architektura Informacji</span>
+                    <p class="section-desc">
+                        Zaprojektowanie przepływu użytkownika (User Flow) przed rozpoczęciem szkicowania.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <img src="{{asset('images/autoplatform/sitemap.png')}}" class="cs-image" alt="IA Diagram">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 sticky-col">
+                    <span class="section-title">Paper Wireframes</span>
+                    <p class="section-desc">
+                        Rapid Sketching. Szybkie szkice pozwoliły zweryfikować pomysły bez ponoszenia kosztów digitalizacji.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <img src="{{asset('images/autoplatform/paper-wireframes.jpg')}}" class="cs-image" style="opacity: 0.9;" alt="Paper Wireframes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark" style="padding-top: 160px;">
+        <div class="container">
+            <div class="row">
+				<div class="col-md-3 sticky-col">
+                    <span class="section-title">Paper wireframes Design</span>
+                    <p class="section-desc">
+                        <!--Hi-Fi Mockups oraz wersja mobilna. Czysty, techniczny design budujący zaufanie.-->
+                    </p>
+                </div>
+                <div class="col-md-3 sticky-col">
+                </div>
+                
+                <div class="col-md-9">
+                    <img src="{{asset('images/autoplatform/wireframes.png')}}" class="cs-image" alt="AutoPlatform Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 sticky-col">
+                    <span class="section-title">Final Design</span>
+                    <p class="section-desc">
+                        Hi-Fi Mockups oraz wersja mobilna. Czysty, techniczny design budujący zaufanie.
+                    </p>
+                </div>
+                <div class="col-md-9">
+                    <img src="{{asset('images/autoplatform/project-dark.png')}}" class="cs-image" alt="Hi Fi Mockups">
+                    
+                    <div class="margin-top-5">
+                        <img src="{{asset('images/autoplatform/project-mobile.png')}}" class="cs-image" style="width: auto; margin: 0 auto;max-width:100%" alt="Mobile UI">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock%}
+
+

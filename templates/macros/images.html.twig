@@ -1,0 +1,36 @@
+{# templates/macros/images.html.twig #}
+
+{# 
+   Makro do generowania obrazków z Lazy Loadingiem i Animacją CSS 
+   Argumenty:
+   - path: ścieżka do pliku (bez asset(), makro samo to doda)
+   - alt: tekst alternatywny (wymagany dla SEO)
+   - width: szerokość (dla CLS)
+   - height: wysokość (dla CLS)
+   - extraClass: (opcjonalne) dodatkowe klasy CSS, np. 'project-thumb'
+#}
+
+{% macro lazy(path, alt, width, height, extraClass = '') %}
+    <img src="{{ asset(path) }}" 
+         width="{{ width }}" 
+         height="{{ height }}" 
+         alt="{{ alt }}" 
+         class="img-responsive reveal-on-scroll {{ extraClass }}"
+         loading="lazy" 
+         decoding="async">
+{% endmacro %}
+
+{# 
+   Makro dla sekcji HERO (Eager Loading - ładowanie natychmiastowe)
+   Tutaj NIE MA 'loading=lazy' ani animacji 'reveal-on-scroll', 
+   bo to ma być widoczne od razu.
+#}
+{% macro hero(path, alt, width, height, extraClass = '') %}
+    <img src="{{ asset(path) }}" 
+         width="{{ width }}" 
+         height="{{ height }}" 
+         alt="{{ alt }}" 
+         class="img-responsive {{ extraClass }}"
+         loading="eager" 
+         decoding="async">
+{% endmacro %}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Borys Jankiewicz | Technical Product Manager{% endblock %}</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{% block meta_description %}Technical Product Manager z doświadczeniem w Data-Driven Strategy i egzekucji projektów IT. Zobacz moje portfolio.{% endblock %}">
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/fav-icon.ico') }}">
+
+        <meta property="og:title" content="Borys Jankiewicz | Technical Product Manager" />
+        <meta property="og:description" content="Data-Driven Strategy & Executable Results. Zobacz moje portfolio." />
+        <meta property="og:image" content="https://borysjankiewicz.pl/images/og-share.jpg" /> <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pl_PL" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+            {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+        
+        <style>
+            .skip-link {
+                position: absolute; left: -9999px; z-index: 999999;
+                padding: 1em; background: #000; color: #fff; text-decoration: none;
+            }
+            .skip-link:focus { left: 0; top: 0; }
+        </style>
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link">Przejdź do treści głównej</a>
+
+        <div class="wrapper-boxed">
+            <div class="site-wrapper">
+                <div class="col-md-12 nopadding">
+                    <header class="header-placeholder">
+                        <div class="header-section white style1 white pin-style">
+                            <div class="container">
+                                <div class="mod-menu">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-2 col-xs-3"> 
+                                            <a href="/" title="Strona Główna" class="logo"> 
+                                                <img src="{{ asset('images/logo/logo.svg') }}" 
+                                                     alt="Borys Jankiewicz - Logo" 
+                                                     width="150" height="50"> 
+                                            </a> 
+                                        </div>
+
+                                        <div class="col-md-10 col-xs-9">
+                                            <div class="main-nav">
+                                                <div class="visible-xs menu-icon"> 
+                                                    <button type="button" class="navbar-toggle collapsed" 
+                                                            data-toggle="collapse" data-target="#menu" 
+                                                            aria-expanded="false" aria-controls="menu" aria-label="Otwórz menu"> 
+                                                        <i aria-hidden="true" class="fa fa-bars"></i> MENU
+                                                    </button> 
+                                                </div>
+
+                                                <nav id="menu" class="collapse" aria-label="Główna nawigacja">
+                                                    <ul class="nav navbar-nav navbar-right"> <li id="nav-home" class="{{ app.request.pathInfo == '/' ? 'active' : '' }}">
+                                                            <a class="link" href="/">Home</a>
+                                                        </li>
+
+                                                        <li id="nav-portfolio" class="{{ app.request.pathInfo == '/portfolio' or '/work' in app.request.pathInfo ? 'active' : '' }}">
+                                                            <a class="link" href="/#portfolio">Portfolio</a>
+                                                        </li>
+
+                                                        <li class="{{ app.request.pathInfo == '/about' ? 'active' : '' }}">
+                                                            <a class="link" href="/about">O mnie</a>
+                                                        </li>
+
+                                                        <li class="{{ app.request.pathInfo == '/contact' ? 'active' : '' }}">
+                                                            <a class="link" href="/contact">Kontakt</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <main id="main-content">
+                {% block all %}
+                {% endblock all %}
+            </main>
+
+            <footer class="section-dark section-bottom" style="padding: 40px 0; background: #050505;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                        	<ul class="footer-quick-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">O mnie</a></li>
+              <li><a href="/#portfolio">Portfolio</a></li>
+              <li><a href="/contact">Kontakt</a></li>
+              <li><a href="/privacy">Polityka prywatności</a></li>
+            </ul>
+
+            <div class="clearfix"></div>
+
+							<!--<div class="container"><div class="divider-line solid dark"></div></div>-->
+                            <p class="text-white" style="font-size: 16px; margin-bottom: 5px;">
+                                <strong>Borys Jankiewicz - Technical Product Manager</strong>
+                            </p>
+                            <div class="copyrights text-light margin-top opacity-6">
+                                Copyright © {{ 'now'|date('Y') }} Borys Jankiewicz
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </body>
+</html>
