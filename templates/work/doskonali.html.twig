@@ -32,11 +32,11 @@ Lekcje z zarządzania budżetem,<br>oczekiwaniami interesariuszy i zakresem proj
 	<div class="row row-eq-height row-v-center">
 
 		<div class="col-md-1"></div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-6">
 
-			<span class="section-title">Problem</span>
-<p>Projekt "Doskonali.pl" miał być konkurencją dla serwisu Fixly. Jako Lead Developer i Manager, zgodziłem się zrealizować ten ambitny cel (klon oglnopolskiej platformy) przy ograniczonym budżecie. Poniższa analiza pokazuje błędy w założeniach oraz nauki płynące z nieudanego projektu, oraz różnice w sposobie zarządzania ryzykiem wtedy i teraz.</p>
-		</div>
+			<span class="section-title">Podsumowanie</span>
+	<p>Projekt zakładał budowę dwustronnego rynku usług (Marketplace B2C/B2B) konkurencyjnego dla liderów branży. W fazie przed-wdrożeniowej, oprócz prac deweloperskich, opracowałem kompleksową strategię marketingową oraz prognozę zwrotu z inwestycji (ROI).</p>
+<p>Analiza wykazała, że budżet operacyjny klienta jest niewystarczający do pozyskania masy krytycznej użytkowników (Liquidity) przy obecnych stawkach CPC i wymogach prawnych (Omnibus). Zidentyfikowałem luki funkcjonalne (brak CRM, Automation, weryfikacji opinii), których wdrożenie było niezbędne dla retencji, ale odrzucone przez klienta. Moja rekomendacja o wstrzymaniu projektu zapobiegła wejściu na rynek z produktem skazanym na porażkę.</p>	</div>
 		<div class="col-md-1"></div>
 
 		<div class="col-md-3 sticky-col">
@@ -45,6 +45,111 @@ Lekcje z zarządzania budżetem,<br>oczekiwaniami interesariuszy i zakresem proj
 	</div>
 </div>
 </section>
+
+
+<section class="section-white" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 sticky-col">
+                    <span class="section-title">Diagram architektury</span>
+					<p class="section-desc"><strong>Konteneryzacja (AWS ECS)</strong>. Serwis w architekturze mikroserwisów i skalowania wertykalnego w fazie MVP. 
+					</p>
+					<p class="section-desc"><strong>State Management</strong>: Sesje obsługiwane lokalnie (brak zewnętrznego Redis w fazie 1), co uprościło deployment.</p>
+<p class="section-desc"><strong>Real-time updates</strong>: Wykorzystanie bezpłatnej wersji <strong>Mercure Hub</strong> do obsługi czatu (limit połączeń akceptowalny dla fazy startowej).</p>
+<p class="section-desc"><strong>Technical Roadmap</strong>: Zdefiniowałem plan migracji do skalowania horyzontalnego (wdrożenie <strong>AWS ElastiCache / Redis</strong> oraz <strong>Mercure Enterprise</strong>) w momencie osiągnięcia KPI ruchu, co pozwoliłoby na obsługę >10k jednoczesnych użytkowników.</p>                </div>
+                <div class="col-md-8">
+                    <div class="row margin-bottom-3">
+                        <div class="col-md-12">
+                            <img src="{{asset('images/doskonali/doskonali-cloud-diagram.png')}}" class="cs-image" alt="Doskonali - architektura serwisu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="section-white" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 sticky-col">
+                    <span class="section-title">Prognozy</span>
+					<p class="section-desc">Projekt został zamknięty, więc wykonałem analizę post-mortem. Odkryłem, że model biznesowy miał wysoką dźwignię operacyjną – przy zbyt małym budżecie (10k) koszty stałe nas dusiły. Matematyka pokazuje, że paradoksalnie wyższy budżet (30k) zmniejszyłby ryzyko inwestycyjne (cash burn) i potroił trakcję. To lekcja o tym, że 'taniej' nie znaczy 'bezpieczniej' w modelach marketplaces/SaaS. 
+					</p>
+				</div>
+                <div class="col-md-8">
+                    <div class="row margin-bottom-3">
+                        <div class="col-md-12">
+                            <img src="{{asset('images/doskonali/wykres_inwestorski.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--
+   -<section class="section-white" style="background-color: #fcfcfc;">
+   -        <div class="container">
+   -            <div class="row">
+   -                <div class="col-md-4 sticky-col">
+   -                    <span class="section-title">Miesięczna Rentowność (EBITDA)</span>
+   -                    <p class="section-desc">
+   -                    Tutaj widzimy dynamikę wychodzenia na prostą. Choć wariant agresywny kosztuje nas miesięcznie więcej, buduje on masę krytyczną przychodów. Dzięki temu firma zyskuje trakcję, która pozwala jej dominować na rynku, podczas gdy wariant zachowawczy skazuje nas na wegetację na granicy rentowności, czyniąc biznes podatnym na każdy, nawet drobny wstrząs rynkowy.
+   -
+   -                    </p>
+   -                </div>
+   -                <div class="col-md-8">
+   -                    <div class="row margin-bottom-3">
+   -                        <div class="col-md-12">
+   -                            <img src="{{asset('images/doskonali/profitability.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
+   -                        </div>
+   -                    </div>
+   -                </div>
+   -            </div>
+   -        </div>
+   -    </section>
+   -->
+
+<section class="section-white" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 sticky-col">
+                    <span class="section-title">Skumulowany Cashflow ("Krzywa Inwestycji")</span>
+					<p class="section-desc">
+					Ten wykres obala mit, że niski budżet marketingowy to 'bezpieczna opcja'. Proszę spojrzeć: Wariant zachowawczy (10k/mc) i tak wymagał zamrożenia 344 tys. zł. Wariant agresywny (30k/mc) wymagałby 367 tys. zł. Wniosek: Różnica w całkowitym ryzyku finansowym to zaledwie 23 tys. zł (różnica ok. 6%). To koszt jednego miesiąca działania firmy. Ryzyko finansowe obu scenariuszy jest niemal identyczne
+
+					</p>
+				</div>
+                <div class="col-md-8">
+                    <div class="row margin-bottom-3">
+                        <div class="col-md-12">
+                            <img src="{{asset('images/doskonali/cashflow.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="section-white" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 sticky-col">
+                    <span class="section-title">Efektywność kapitału</span>
+					<p class="section-desc">To jest kluczowy slajd decyzyjny. Po lewej stronie widzimy koszt: Aby zrealizować wariant agresywny, musielibyśmy zaryzykować tylko o 7% więcej kapitału (dodatkowe 23k PLN). Po prawej stronie widzimy efekt: W zamian otrzymalibyśmy 300% skali biznesu (GMV 747k vs 249k). Wniosek: Inwestor, wybierając wariant tani, 'kupił' iluzoryczne bezpieczeństwo za cenę utraty 500 tys. zł obrotu rocznie. To klasyczny przykład, gdzie unikanie małego ryzyka blokuje ogromną wartość.</p>
+				</div>
+                <div class="col-md-8">
+                    <div class="row margin-bottom-3">
+                        <div class="col-md-12">
+                            <img src="{{asset('images/doskonali/scenarios.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock%}
 
 
