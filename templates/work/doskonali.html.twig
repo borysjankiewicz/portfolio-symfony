@@ -34,7 +34,7 @@ Lekcje z zarządzania budżetem,<br>oczekiwaniami interesariuszy i zakresem proj
 		<div class="col-md-1"></div>
 		<div class="col-md-6">
 
-			<span class="section-title">Podsumowanie</span>
+			<span class="section-title">Opis projektu</span>
 	<p>Projekt zakładał budowę dwustronnego rynku usług (Marketplace B2C/B2B) konkurencyjnego dla liderów branży. W fazie przed-wdrożeniowej, oprócz prac deweloperskich, opracowałem kompleksową strategię marketingową oraz prognozę zwrotu z inwestycji (ROI).</p>
 <p>Analiza wykazała, że budżet operacyjny klienta jest niewystarczający do pozyskania masy krytycznej użytkowników (Liquidity) przy obecnych stawkach CPC i wymogach prawnych (Omnibus). Zidentyfikowałem luki funkcjonalne (brak CRM, Automation, weryfikacji opinii), których wdrożenie było niezbędne dla retencji, ale odrzucone przez klienta. Moja rekomendacja o wstrzymaniu projektu zapobiegła wejściu na rynek z produktem skazanym na porażkę.</p>	</div>
 		<div class="col-md-1"></div>
@@ -68,84 +68,92 @@ Lekcje z zarządzania budżetem,<br>oczekiwaniami interesariuszy i zakresem proj
         </div>
     </section>
 
+<section class="section-dark" style="">
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<h2 class="section-title"><strong>Walidacja rynkowa i redefinicja modelu biznesowego</strong></h2>
+					<p class="section-desc"></p>
+
+					<p>W obliczu narastającego scope creep, rosnących wymagań prawnych i niepewności biznesowej przeprowadziłem audyt przedwdrożeniowy.</p>
+					<p>Podczas audytu zidentyfikowałem krytyczne braki w specyfikacji (Functional Gaps), które były &quot;być albo nie być&quot; dla produktu:</p>
+					<ol>
+						<li><strong>Compliance (Dyrektywa Omnibus):</strong> Brak budżetu na system weryfikacji opinii (wymóg prawny od 2023 r.). Wdrożenie serwisu bez tego narażało firmę na kary UOKiK.</li>
+						<li><strong>Marketing Automation &amp; CRM:</strong> Brak zgody na wdrożenie narzędzi do odzyskiwania porzuconych koszyków i automatyzacji komunikacji (Lead Nurturing). Bez tego tracilibyśmy do 70% ruchu opłaconego z reklam.</li>
+						<li><strong>Mobile Experience:</strong> Brak budżetu na wdrożenie nawet hybrydowej aplikacji mobilnej, co przy tej grupie docelowej (fachowcy w terenie) jest dyskwalifikujące.</li>
+					</ol>
+					<p>Zidentyfikowałem również czynniki makro, które zmieniły zasady gry w trakcie prac:</p>
+					<ul>
+						<li>Skok CPC/CPA: Koszt pozyskania leada w Google Ads wzrósł o &gt;100% względem założeń z 2021 r.</li>
+						<li>Compliance (Omnibus &amp; Consent Mode v2): Nowe regulacje prawne i technologiczne ograniczyły precyzję śledzenia konwersji i wymusiły zmiany w transparentności cenowej.</li>
+						<li>Scope Creep: Rozszerzający się zakres prac (aplikacje) przy rosnących kosztach marketingu.</li>
+					</ul>
+					<p>Moja rekomendacja była następująca</p>
+					<blockquote>
+						<p>&quot;Wdrożenie serwisu, bez uwzględnienia zmian w otoczeniu zarówno prawnym jaki ekonomicznym oraz technologicznym narażałoby projekt na wiele różnych ryzyk. Bez zmiany modelu biznesowego oraz wdrożenia dodatkowych funkcjonalności nadanie trakcji jest niemożliwe&quot;</p>
+					</blockquote>
+					<br />
+					<h2 class="section-title">Wsteczny proces Discovery i redefinicja modelu biznesowego</h2>
+					<p>Moja rekomendacja, poparta rewizją prognoz Cash Flow i ROI, zapobiegła alokacji kapitału w produkt nieposiadający walidacji rynkowej (Product-Market Fit). W związku z tym przeprowadziłem następujące badania aby odpowiedzieć na pytanie czy na rynku jest miejsce ne ten produkt, oraz jakie zmiany należy wprowadzić aby wdrożenie marketplace wypełniało lukę na rynku oraz miało sens ekonomiczny.</p>
+					<p>W tym celu wykorzystałem następujące narzędzia:</p>
+					<ol>
+						<li><strong>Badania ilościowe i jakościowe (ankiety/wywiady):</strong> Zamiast testować interfejs, zadałem pytania fundamentalne o potrzeby (np. &quot;Jacy fachowcy byli najbardziej potrzebni?&quot;, &quot;Jakie były przeszkody w znalezieniu fachowca?&quot;).</li>
+						<li><strong>Competitive Audit &amp; Secondary Research:</strong> Analiza konkurencji oraz opinii użytkowników (Trustpilot), co pozwoliło zbudować &quot;Personę Negatywną&quot; (czego unikać) i zmapować frustracje obecne na rynku.</li>
+						<li><strong>UX Artifacts:</strong> Na podstawie danych stworzyłem Persony, User Journey Maps, Empathy Maps oraz zdefiniowałem Problem Statements.</li>
+						<li><strong>Business Design:</strong> Opracowałem Value Proposition Canvas oraz Lean Canvas, aby znaleźć lukę rynkową (Market Gap).</li>
+					</ol>
+					<br />
+					
+					<h2 class="section-title">Kluczowe Odkrycie - zmiana modelu biznesowego</h2>
+					<br />
+					
+					<h4>Filar I: Market Gap &amp; Asymetria Informacji</h4>
+					<p>Odkryłem, że rynek masowy ignoruje segment klientów wymagających (Premium). Zidentyfikowałem asymetrię informacji jako główny hamulec – klienci nie wiedzieli, kto jest dobrym fachowcem, a fachowcy tracili czas na &quot;śmieciowe&quot; zapytania.</p>
+					<br />
+					<h4>Filar II: Incentive Design (Mechanizm Motywacyjny)</h4>
+					<p>Rozwiązałem Principal-Agent Problem. Wprowadziłem logikę, w której specjalista jest motywowany do potwierdzania jakości poprzez &quot;Priority Access&quot;. To pozwoliło mitygować Leakage (ucieczkę transakcji poza platformę).</p>
+					<br />
+					<h4>Filar III: Unit Economics &amp; Fill Rate (Dźwignia Wzrostu)</h4>
+	
+
+<p>Przechodząc na model Managed, zmieniamy wektor wzrostu. Przy zachowaniu porównywalnej marży jednostkowej, optymalizacja Fill Rate do poziomu 75% działa jak dźwignia dla retencji. Zadowolony użytkownik wraca. To zmienia naszą ekonomię z jednorazowej transakcji na model Recurring Revenue, gdzie LTV rośnie wykładniczo dzięki częstotliwości zakupów (Frequency), a nie liniowo dzięki akwizycji.</p>				<br />
+				
+				</div>
+			</div>
+
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+	<h3>Wykres Cash Flow</h3>
+					<img src="{{asset('images/doskonali/cashflow.svg')}}" class="cs-image" alt="Wykres Cash Flow - porównanie modelu managed i unmanaged marketplace">
+					<p>Oparte na benchmarkach rynkowych z Fixly/Oferteo</p>
+					<br />
+					
+					<h3>LTV / CAC na tle Gross Market Value</h3>
+					<img src="{{asset('images/doskonali/wykres_inwestorski.svg')}}" class="cs-image" alt="Wykres LTV / CAC na tle Gross Market Value">
+
+
+	</div>
+</div>
+		</div>
+		</section>
+
+
+
 <section class="section-white" style="background-color: #fcfcfc;">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 sticky-col">
-                    <span class="section-title">Prognozy</span>
-					<p class="section-desc">Projekt został zamknięty, więc wykonałem analizę post-mortem. Odkryłem, że model biznesowy miał wysoką dźwignię operacyjną – przy zbyt małym budżecie (10k) koszty stałe nas dusiły. Matematyka pokazuje, że paradoksalnie wyższy budżet (30k) zmniejszyłby ryzyko inwestycyjne (cash burn) i potroił trakcję. To lekcja o tym, że 'taniej' nie znaczy 'bezpieczniej' w modelach marketplaces/SaaS. 
-					</p>
+				<div class="col-md-2">
+
 				</div>
                 <div class="col-md-8">
-                    <div class="row margin-bottom-3">
-                        <div class="col-md-12">
-                            <img src="{{asset('images/doskonali/wykres_inwestorski.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<!--
-   -<section class="section-white" style="background-color: #fcfcfc;">
-   -        <div class="container">
-   -            <div class="row">
-   -                <div class="col-md-4 sticky-col">
-   -                    <span class="section-title">Miesięczna Rentowność (EBITDA)</span>
-   -                    <p class="section-desc">
-   -                    Tutaj widzimy dynamikę wychodzenia na prostą. Choć wariant agresywny kosztuje nas miesięcznie więcej, buduje on masę krytyczną przychodów. Dzięki temu firma zyskuje trakcję, która pozwala jej dominować na rynku, podczas gdy wariant zachowawczy skazuje nas na wegetację na granicy rentowności, czyniąc biznes podatnym na każdy, nawet drobny wstrząs rynkowy.
-   -
-   -                    </p>
-   -                </div>
-   -                <div class="col-md-8">
-   -                    <div class="row margin-bottom-3">
-   -                        <div class="col-md-12">
-   -                            <img src="{{asset('images/doskonali/profitability.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
-   -                        </div>
-   -                    </div>
-   -                </div>
-   -            </div>
-   -        </div>
-   -    </section>
-   -->
-
-<section class="section-white" style="background-color: #fcfcfc;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 sticky-col">
-                    <span class="section-title">Skumulowany Cashflow ("Krzywa Inwestycji")</span>
-					<p class="section-desc">
-					Ten wykres obala mit, że niski budżet marketingowy to 'bezpieczna opcja'. Proszę spojrzeć: Wariant zachowawczy (10k/mc) i tak wymagał zamrożenia 344 tys. zł. Wariant agresywny (30k/mc) wymagałby 367 tys. zł. Wniosek: Różnica w całkowitym ryzyku finansowym to zaledwie 23 tys. zł (różnica ok. 6%). To koszt jednego miesiąca działania firmy. Ryzyko finansowe obu scenariuszy jest niemal identyczne
-
-					</p>
-				</div>
-                <div class="col-md-8">
-                    <div class="row margin-bottom-3">
-                        <div class="col-md-12">
-                            <img src="{{asset('images/doskonali/cashflow.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<section class="section-white" style="background-color: #fcfcfc;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 sticky-col">
-                    <span class="section-title">Efektywność kapitału</span>
-					<p class="section-desc">To jest kluczowy slajd decyzyjny. Po lewej stronie widzimy koszt: Aby zrealizować wariant agresywny, musielibyśmy zaryzykować tylko o 7% więcej kapitału (dodatkowe 23k PLN). Po prawej stronie widzimy efekt: W zamian otrzymalibyśmy 300% skali biznesu (GMV 747k vs 249k). Wniosek: Inwestor, wybierając wariant tani, 'kupił' iluzoryczne bezpieczeństwo za cenę utraty 500 tys. zł obrotu rocznie. To klasyczny przykład, gdzie unikanie małego ryzyka blokuje ogromną wartość.</p>
-				</div>
-                <div class="col-md-8">
-                    <div class="row margin-bottom-3">
-                        <div class="col-md-12">
-                            <img src="{{asset('images/doskonali/scenarios.svg')}}" class="cs-image" alt="Doskonali - architektura serwisu">
-                        </div>
-                    </div>
-                </div>
+                	<h2 class="section-title">Podsumowanie i Wnioski</h2>
+ <p>Decyzja o rozpoczęciu pac nad serwisem opierała się na wiedzy eksperckiej z branży usług dla klientów indywidualnych. Nie był wcześniej przeprowadzony research z fazą empatyzacji i definiowania a także faza odkrywania. Uznano, że serwis miał być być funkcjonalnie wzorowany na Fixly z położeniem większego nacisku na weryfikację specjalistów, a zarazem przeprowadzony mniejszymi środkami. Prace nad serwisem znacząco się jednak wydłużyły w związku ze scope creep, nieadekwatnością pierwotnie planowanych rozwiązań, koniecznością implementacji dyrektyw unijnych i skokowemu wzrostowi kosztów marketingu.</p>
+ <br />
+ 
+<p>Prowadzenie tego projektu nauczyło mnie, że sukces produktu zależy nie tylko od technologii ale w głównej mierze od walidacji popytu i unit economics. Gdy model biznesowy nie jest poprzedzony fazą wnikliwych badań, każdy szok związany z sytuacja ekonomiczną lub wdrożeniem nowych regulacji może przekreślić sens wdrożenia produktu</p>
+<p></p>               </div>
             </div>
         </div>
     </section>
